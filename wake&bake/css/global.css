@@ -1,11 +1,18 @@
 :root {
     --general-text: #312C27;
     --accent-text: #1F1711;
+    --accent-text-2: #CEAAD0;
     --general-bg: #fff9f4;
     --accent-bg: #FFE0CB;
     --accent-color: #FFA55C;
+    --input-color: #AC907A;
     --transition: all .4s;
     --border-radius: 20px;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3vh;
 }
 
 
@@ -40,8 +47,10 @@
     padding: 140px 0;
 }
 
-.main__program {
-    padding: 140px 0;
+.main__program,
+.main__gallery,
+.main__testimonials {
+    padding-bottom: 140px;
 }
 
 .container {
@@ -119,7 +128,7 @@
 
 .modal__cancel:hover path,
 .modal__cancel:hover rect {
-    stroke: #AC907A;
+    stroke: var(--input-color);
 }
 
 .modal__img {
@@ -153,7 +162,7 @@
     top: 12px;
     left: 28px;
     font-size: 11px;
-    color: #AC907A;
+    color: var(--input-color);
 
     opacity: 0;
     visibility: hidden;
@@ -164,7 +173,7 @@
     display: block;
     width: 100%;
     background: #00000000;
-    border: 1px solid #AC907A;
+    border: 1px solid var(--input-color);
     border-radius: 100px;
     padding: 19px 42px 19px 28px;
     font-size: 16px;
@@ -176,7 +185,7 @@
 }
 
 .field__input::placeholder {
-    color: #AC907A;
+    color: var(--input-color);
     transition: var(--transition);
 }
 
@@ -191,4 +200,39 @@
 .field__input:focus+span {
     opacity: 1;
     visibility: visible;
+}
+
+.contact__checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #ac907a;
+    transition: var(--transition);
+    border-radius: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.contact__checkbox::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 0;
+    background: url('../img/icons/check.svg') 50% 50% no-repeat;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.contact__checkbox:hover {
+    border: 1.5px solid var(--accent-color);
+}
+
+.contact__checkbox:checked {
+    background: var(--accent-color);
+    border: 1.5px solid var(--accent-color);
+}
+
+.contact__checkbox:checked::before {
+    opacity: 1;
 }
